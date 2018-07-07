@@ -34,7 +34,7 @@ app.use(cors({
 
 // app.use('/', koa.static())
 
-// 上传文件
+// 上传文件 解析body中间件
 app.use(bodyparser({
     enableTypes:['json', 'form', 'text'],
     "formLimit": "5mb",
