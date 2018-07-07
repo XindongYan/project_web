@@ -1,0 +1,30 @@
+{
+  "name": "xinyan",
+  "version": "1.0.0",
+  "description": "xinyan服务端",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV = dev && node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "kcors": "^2.2.1",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-onerror": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "koa-views": "^6.1.4",
+    "mongoose": "^5.1.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.17.4"
+  }
+}
