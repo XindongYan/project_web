@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const upload = require('../models/upload.mongo')
 
-router.get('/api/task/all', (ctx, next) => {
+router.get('/api/task/all', async (ctx, next) => {
     const query = ctx.request.query;
     try {
         if (query.title) {
@@ -9,7 +9,7 @@ router.get('/api/task/all', (ctx, next) => {
             ctx.body = { page: task }
         } else {
             const taskall = await upload.find({})   //  查询全部
-            ctx.body = {page: taskall}
+            ctx.body = { taskall}
         }
     } catch(e) {
         ctx.body ={
@@ -20,7 +20,7 @@ router.get('/api/task/all', (ctx, next) => {
     }
 })
 
-router.post('/api/task', (ctx, next) => {
+router.post('/api/task', async (ctx, next) => {
     const body = ctx.request.body;
     try {
         if (body.title && body.body && body.auther) {
@@ -30,7 +30,8 @@ router.post('/api/task', (ctx, next) => {
                 auther: body.auther
             })
             ctx.body = {
-                msg
+                msg: '保存成功',
+                result
             }
         } else{
             ctx.body = {
@@ -46,3 +47,5 @@ router.post('/api/task', (ctx, next) => {
         }
     }
 })
+
+module.exports = router
