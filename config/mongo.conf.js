@@ -2,4 +2,4 @@ module.exports = {
     dev: {
         url: 'mongodb://127.0.0.1:27017/xinyan'
     }
-}[ 'dev']
+}[ process.env.NODE_ENV || 'dev']
