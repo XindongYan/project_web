@@ -20,6 +20,25 @@ router.get('/api/task/all', async (ctx, next) => {
     }
 })
 
+router.get('/api/test', async (ctx, next) => {
+    const id = ['5b4b7740470e5a024c2b596d', '5b4b77a2470e5a024c2b596e', '5b4b77f2470e5a024c2b596f'];
+    const awaitArray = [];
+    const a = [];
+    var ze = 0;
+    for (let index = 0; index < id.length; index++) {
+        // awaitArray.push( 
+        //     upload.findOneAndUpdate({ _id: id[index] }, { $set: { auther: '真实故事' } }) 
+        // )
+        a.push(upload.findOneAndUpdate({ _id: id[index], __v: {$lte: ze} }, { $set: { auther: '事' } }, { new: true }))
+    }
+
+//    await Promise.all(awaitArray);
+   var result = await Promise.all(a); 
+    ctx.body = {
+        result
+    }
+})
+
 router.post('/api/task', async (ctx, next) => {
     const body = ctx.request.body;
     try {
